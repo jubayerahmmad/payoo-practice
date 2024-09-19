@@ -27,12 +27,15 @@
             <div class="divider"></div>
             <!-- user action button -->
             <div class="action-btn">
-              <a href="#" class="btn btn-primary btn-lg">Add Money</a>
-              <a href="#" class="btn btn-primary btn-lg">CashOut</a>
+              <button id="add-money" class="btn btn-primary">Add Money</button>
+              <button id="cash-out" class="btn btn-primary">Cash Out</button>
             </div>
             <div class="divider"></div>
-            <!-- add money form -->
-            <div class="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+            <!--! add money form -->
+            <div
+              id="add-money-form"
+              class="card hidden bg-base-100 w-full max-w-sm shrink-0 shadow-2xl"
+            >
               <form class="card-body">
                 <div class="form-control">
                   <label class="label">
@@ -41,7 +44,7 @@
                   <input
                     id="input-add-money"
                     type="number"
-                    placeholder="Amount"
+                    placeholder="Add Money Amount"
                     class="input input-bordered"
                     required
                   />
@@ -51,7 +54,7 @@
                     <span class="label-text">Pin</span>
                   </label>
                   <input
-                    id="pin-number"
+                    id="add-pin-number"
                     type="password"
                     placeholder="Your Pin"
                     class="input input-bordered"
@@ -65,10 +68,75 @@
                 </div>
               </form>
             </div>
+            <!--! cash out form -->
+            <div
+              id="cash-out-form"
+              class="card hidden bg-base-100 w-full max-w-sm shrink-0 shadow-2xl"
+            >
+              <form class="card-body">
+                <div class="form-control">
+                  <label class="label">
+                    <span class="label-text">Amount</span>
+                  </label>
+                  <input
+                    id="input-cash-out"
+                    type="number"
+                    placeholder="Cash Out Amount"
+                    class="input input-bordered"
+                    required
+                  />
+                </div>
+                <div class="form-control">
+                  <label class="label">
+                    <span class="label-text">Pin</span>
+                  </label>
+                  <input
+                    id="out-pin-number"
+                    type="password"
+                    placeholder="Your Pin"
+                    class="input input-bordered"
+                    required
+                  />
+                </div>
+                <div class="form-control mt-6">
+                  <button id="btn-cash-out" class="btn btn-primary">
+                    Cash Out
+                  </button>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
       </div>
     </main>
     <script src="./js/home.js"></script>
+    <!-- <script>
+      document
+        .getElementById("btn-add-money")
+        .addEventListener("click", function (e) {
+          e.preventDefault();
+          const addMoneyInput =
+            document.getElementById("input-add-money").value;
+          const pinInput = document.getElementById("pin-number").value;
+          const addMoneyNum = parseFloat(addMoneyInput);
+          const pinNum = parseFloat(pinInput);
+
+          if (pinNum == "1234" && addMoneyNum > 0) {
+            let currentBalance =
+              document.getElementById("current-balance").innerText;
+            currentBalance = parseFloat(currentBalance);
+            const newBalance = addMoneyNum + currentBalance;
+            document.getElementById("current-balance").innerText = newBalance;
+            document.getElementById("pin-number").value = "";
+            document.getElementById("input-add-money").value = "";
+          } else {
+            alert(
+              "Invalid input. Please enter a positive number for amount and a valid PIN."
+            );
+            document.getElementById("pin-number").value = "";
+            document.getElementById("input-add-money").value = "";
+          }
+        });
+    </script> -->
   </body>
 </html>
