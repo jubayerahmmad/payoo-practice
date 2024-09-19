@@ -21,7 +21,7 @@ document
     const pinNum = document.getElementById("pin-number").value;
 
     if (phnNum === "5" && pinNum === "1235") {
-      window.location.href = "/home.html";
+      window.location.href = "./home.html";
     } else {
       alert("Invalid phone number or pin number!");
     }
